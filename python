@@ -1,0 +1,55 @@
+
+source : https://www.geeksforgeeks.org/python/python-interview-questions/
+important questions :
+1)is python compiled or interpreted
+a) both compiled(to .pyc) which is readable by pvm then interpreted
+
+2)data types 
+int float complex
+list tuple str set frozenset dict bool None
+
+3) scope :
+    local : inside function
+    global : outside of any function
+    bilt in : len , print
+
+4)custom exception
+  class NegativeException(Exception):
+    pass
+
+  we can then raise NegativeException whenever needed
+
+5) from array import array
+    a = array('i' , [1,2,3]) # store only specified data type here it is integer
+
+6) module : single imported file ex math
+  package : collection of modules and stored within a directory and also having __init__.py
+
+7) python 2 : range : list of number , xrange : generator of number
+   python3 : only range that acts as xrange to give generator of numbers
+
+8) (i for i in (1, 2, 3)) # tuple conprehension
+
+9) python uses tim sort O(NlogN)
+
+10) Decorators :  takes a function decorate it and gives new function ex : loggin , authentication , cache
+
+11) pdp module for debugging  use pdp.set_trace() 
+
+12) For more advanced debugging, the logging module provides a flexible way to log messages with different severity levels (INFO, DEBUG, WARNING, ERROR, CRITICAL).
+
+13) generator : when used yied it directly return and pauses and resume whenever next is needed
+
+14) python supports multiple inhertance
+
+15) os.remove("file_name.txt")
+
+17) instance (self+class)  , @classmethod(class only) , staticmethod(nothing)
+
+18)
+| Specifier | Prefix | Accessible from  | Notes                                    |
+| --------- | ------ | ---------------- | ---------------------------------------- |
+| Public    | none   | everywhere       | Default                                  |
+| Protected | `_`    | class & subclass | Convention only                          |
+| Private   | `__`   | class only       | Name mangling prevents accidental access |
+
