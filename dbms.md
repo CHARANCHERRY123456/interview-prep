@@ -45,3 +45,58 @@ Process of organizing data into well-structured tables to remove redundancy and 
 ---
 
 **Goal:** stepwise elimination of redundancy and anomalies while preserving data integrity.
+
+
+
+
+### **Indexing – Quick Revision**
+
+**Goal:** Speed up data retrieval by avoiding full table scans.
+
+---
+
+### 1️⃣ What is an Index
+
+* A **data structure** (stored separately) that maps key values → row locations.
+* Think of it as a book’s back-of-the-book index.
+
+---
+
+### 2️⃣ Types
+
+* **Primary/Clustered**:
+
+  * Sorting of table data matches the index order.
+  * One per table (because data itself is stored in that order).
+* **Secondary/Non-clustered**:
+
+  * Separate structure holding key + pointer (row ID).
+  * Multiple allowed.
+
+---
+
+### 3️⃣ Common Structures
+
+* **B+ Tree**: Balanced tree; great for range queries.
+* **Hash Index**: Fast equality lookups (=), not good for ranges.
+* Others: Bitmap (for low-cardinality columns), Full-Text, etc.
+
+---
+
+### 4️⃣ Operations
+
+* **Lookup:** Use index to jump directly to rows.
+* **Insert/Update/Delete:** Must also update index → slightly slower writes.
+
+---
+
+### 5️⃣ Guidelines
+
+* Index columns used in `WHERE`, `JOIN`, `ORDER BY`.
+* Avoid over-indexing—each extra index costs space & maintenance.
+
+---
+
+**Essence:**
+An index is a separate, sorted (or hashed) structure that accelerates reads at the expense of extra storage and write overhead.
+
