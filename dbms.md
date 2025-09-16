@@ -100,3 +100,69 @@ Process of organizing data into well-structured tables to remove redundancy and 
 **Essence:**
 An index is a separate, sorted (or hashed) structure that accelerates reads at the expense of extra storage and write overhead.
 
+
+
+Here’s a **short & clear revision** of the main **types of databases**:
+
+---
+
+### 1️⃣ Relational (RDBMS)
+
+* **Model:** Tables with rows & columns, linked by foreign keys.
+* **Query:** SQL.
+* **Strengths:** Structured data, normalization, mature tools.
+* **Limits:** Horizontal scaling is harder as data grows huge.
+* **Examples:** MySQL, PostgreSQL, Oracle.
+
+---
+
+### 2️⃣ Object-Oriented
+
+* **Model:** Stores data as **objects** (like OOP). Supports inheritance, encapsulation.
+* **Pros:** Good for complex data, works well with object-oriented languages.
+* **Cons:** High complexity, slower operations, small community.
+* **Examples:** ObjectDB, GemStone.
+
+---
+
+### 3️⃣ NoSQL
+
+* **Model:** Non-tabular; flexible schemas.
+* **Types:** Key–Value, Document, Wide-Column, Graph.
+* **Pros:** Handles big data, easy horizontal scaling, schema-less.
+* **Examples:** MongoDB, Cassandra, Redis.
+
+---
+
+### 4️⃣ Hierarchical
+
+* **Model:** Tree structure (parent → child, one parent per child).
+* **Pros:** Fast for one-to-many data (like file systems, org charts).
+* **Cons:** Inflexible for many-to-many relationships, redundancy.
+* **Examples:** IBM IMS.
+
+---
+
+### 5️⃣ Network
+
+* **Model:** Graph structure (records can have many parents).
+* **Pros:** Handles complex M\:N relationships.
+* **Cons:** Maintenance & queries more complex, less modern support.
+* **Examples:** IDMS, Raima.
+
+---
+
+**Essence:**
+
+* **Relational** → Tables & SQL.
+* **Object-Oriented** → OOP-style objects.
+* **NoSQL** → Flexible, scalable non-tabular.
+* **Hierarchical** → Tree.
+* **Network** → Graph-like with many-to-many links.
+
+
+
+
+
+
+
