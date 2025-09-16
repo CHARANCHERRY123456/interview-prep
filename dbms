@@ -1,0 +1,179 @@
+
+Integrity Constraints 
+
+In DBMS, integrity constraints are rules that ensure the accuracy, consistency, and validity of data stored in a database.
+They act like guardrails: whenever you insert, update, or delete data, these rules prevent invalid or inconsistent data from entering the database.
+
+
+---
+
+🧩 Why Integrity Constraints Matter
+
+Data Accuracy: Prevents wrong or meaningless data (e.g., negative age).
+
+Consistency: Maintains valid relationships between tables.
+
+Reliability: Ensures the database reflects real-world rules.
+
+
+
+---
+
+✅ Types of Integrity Constraints
+
+1️⃣ Domain Constraints
+
+Ensure that a column’s value is from a valid set of values (data type, range, format).
+
+Enforced by: NOT NULL, CHECK, DEFAULT, data types.
+
+Example:
+
+CREATE TABLE Student (
+    Age INT CHECK (Age >= 0 AND Age <= 120)
+);
+
+➜ Age must be between 0 and 120.
+
+
+
+---
+
+2️⃣ Entity Integrity
+
+Every row must be uniquely identifiable.
+
+Enforced by: PRIMARY KEY.
+
+Rules:
+
+Primary key cannot be NULL.
+
+Primary key must be unique.
+
+
+Example:
+
+CREATE TABLE Student (
+    RollNo INT PRIMARY KEY,
+    Name VARCHAR(50)
+);
+
+
+
+---
+
+3️⃣ Referential Integrity
+
+Maintains valid relationships between two tables (foreign keys).
+
+A foreign key in a child table must match a primary key in the parent table, or be NULL (if allowed).
+
+Prevents:
+
+Orphan records (child without parent).
+
+Deleting parent rows if child rows depend on them (unless ON DELETE rules are set).
+
+
+CREATE TABLE Department (
+    DeptID INT PRIMARY KEY
+);
+
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    DeptID INT,
+    FOREIGN KEY (DeptID) REFERENCES Department(DeptID)
+);
+
+
+
+---
+
+4️⃣ Key Constraints
+
+Ensure that certain columns (candidate keys) are unique across rows.
+
+Types:
+
+Primary Key: One per table.
+
+Unique Key: Can be multiple; NULL allowed unless specified.
+
+
+CREATE TABLE User (
+    Email VARCHAR(100) UNIQUE
+);
+
+
+
+---
+
+5️⃣ Check Constraints
+
+Custom conditions that must be true for each row.
+
+Example:
+
+CREATE TABLE Orders (
+    Quantity INT CHECK (Quantity > 0),
+    Price DECIMAL(10,2) CHECK (Price >= 0)
+);
+
+
+
+---
+
+6️⃣ NOT NULL Constraint
+
+Ensures a column cannot store NULL (must have a value).
+
+CREATE TABLE Student (
+    Name VARCHAR(50) NOT NULL
+);
+
+
+
+---
+
+7️⃣ Default Constraint
+
+Assigns a default value if no value is provided.
+
+CREATE TABLE Student (
+    Status VARCHAR(10) DEFAULT 'Active'
+);
+
+
+
+---
+
+🔑 Key Points to Remember
+
+Order of enforcement: Domain → Entity → Referential.
+
+Integrity constraints are checked automatically by the DBMS during INSERT, UPDATE, DELETE.
+
+They ensure logical correctness of data without extra application code.
+
+
+
+---
+
+🗂 Interview Summary Answer
+
+> Integrity constraints are rules that maintain the correctness and consistency of database data.
+Major types include:
+
+Domain (valid data types/ranges),
+
+Entity (primary key non-null & unique),
+
+Referential (valid foreign key references),
+
+Key (uniqueness), along with CHECK, NOT NULL, and DEFAULT.
+They protect the database from invalid operations and keep relationships accurate.
+
+
+
+
